@@ -21,7 +21,7 @@ class ReviseOperationServiceProvider extends ServiceProvider
             $this->bootForConsole();
         }
     }
-    
+
     /**
      * Console-specific booting.
      *
