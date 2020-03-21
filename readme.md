@@ -11,7 +11,7 @@ Adds an interface for [```venturecraft/revisionable```](https://github.com/Ventu
 
 [```venturecraft/revisionable```](https://github.com/VentureCraft/revisionable) allows you to store, see and undo changes to entries on an Eloquent model. This package just provides an admin interface for it, in the form of a Backpack operation, that you can use on the CrudControllers of entities that have the Revisionable trait.
 
-When enabled, Revisions will show another button in the table view, between Edit and Delete. On click, that button opens another page which will allow an admin to see all changes and who made them:
+When used, this operation will show another button for each entry in the table view. On click, that button opens another page, which will allow an admin to see all changes and who made them:
 
 ![https://backpackforlaravel.com/uploads/docs-4-0/operations/revisions.png](https://backpackforlaravel.com/uploads/docs-4-0/operations/revisions.png)
 
@@ -20,7 +20,7 @@ When enabled, Revisions will show another button in the table view, between Edit
 **Step 1.** Require the package:
 
 ``` bash
-composer require backpack/reviseoperation
+composer require backpack/revise-operation
 ```
 
 This will automatically install ```venturecraft/revisionable``` too, if it's not already installed.
@@ -99,14 +99,14 @@ If you discover any security related issues, please email hello@tabacitu.ro inst
 
 MIT. Please see the [license file](license.md) for more information.
 
-[ico-version]: https://img.shields.io/packagist/v/backpack/reviseoperation.svg?style=flat-square
-[ico-downloads]: https://img.shields.io/packagist/dt/backpack/reviseoperation.svg?style=flat-square
-[ico-travis]: https://img.shields.io/travis/backpack/reviseoperation/master.svg?style=flat-square
+[ico-version]: https://img.shields.io/packagist/v/backpack/revise-operation.svg?style=flat-square
+[ico-downloads]: https://img.shields.io/packagist/dt/backpack/revise-operation.svg?style=flat-square
+[ico-travis]: https://img.shields.io/travis/backpack/revise-operation/master.svg?style=flat-square
 [ico-styleci]: https://styleci.io/repos/12345678/shield
 
-[link-packagist]: https://packagist.org/packages/backpack/reviseoperation
-[link-downloads]: https://packagist.org/packages/backpack/reviseoperation
-[link-travis]: https://travis-ci.org/backpack/reviseoperation
+[link-packagist]: https://packagist.org/packages/backpack/revise-operation
+[link-downloads]: https://packagist.org/packages/backpack/revise-operation
+[link-travis]: https://travis-ci.org/backpack/revise-operation
 [link-styleci]: https://styleci.io/repos/12345678
 [link-author]: https://github.com/backpack
 [link-contributors]: ../../contributors
