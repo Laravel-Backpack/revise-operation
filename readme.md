@@ -102,11 +102,11 @@ MIT. Please see the [license file](license.md) for more information.
 [ico-version]: https://img.shields.io/packagist/v/backpack/revise-operation.svg?style=flat-square
 [ico-downloads]: https://img.shields.io/packagist/dt/backpack/revise-operation.svg?style=flat-square
 [ico-travis]: https://img.shields.io/travis/backpack/revise-operation/master.svg?style=flat-square
-[ico-styleci]: https://styleci.io/repos/12345678/shield
+[ico-styleci]: https://styleci.io/repos/248960912/shield
 
 [link-packagist]: https://packagist.org/packages/backpack/revise-operation
 [link-downloads]: https://packagist.org/packages/backpack/revise-operation
 [link-travis]: https://travis-ci.org/backpack/revise-operation
-[link-styleci]: https://styleci.io/repos/12345678
+[link-styleci]: https://styleci.io/repos/248960912
 [link-author]: https://github.com/backpack
 [link-contributors]: ../../contributors
