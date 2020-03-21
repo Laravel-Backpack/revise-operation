@@ -110,11 +110,11 @@ trait ReviseOperation
         if (! $revisionId) {
             abort(500, 'Can\'t restore revision without revision_id');
         } else {
-	        $entry = $this->crud->getEntryWithoutFakes($id);
-	        $revision = Revision::findOrFail($revisionId);
+            $entry = $this->crud->getEntryWithoutFakes($id);
+            $revision = Revision::findOrFail($revisionId);
 
-	        // Update the revisioned field with the old value
-	        $entry->update([$revision->key => $revision->old_value]);
+            // Update the revisioned field with the old value
+            $entry->update([$revision->key => $revision->old_value]);
 
             $this->data['entry'] = $this->crud->getEntry($id);
             $this->data['crud'] = $this->crud;
