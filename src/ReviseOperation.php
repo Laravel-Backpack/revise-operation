@@ -48,7 +48,7 @@ trait ReviseOperation
 
         // add a new method on the CrudPanel object to allow this operation
         // to call getRevisionsForEntry from multiple operation methods
-        $this->crud->macro('getRevisionsForEntry', function($id) {
+        $this->crud->macro('getRevisionsForEntry', function ($id) {
             $revisions = [];
 
             // Group revisions by change date
