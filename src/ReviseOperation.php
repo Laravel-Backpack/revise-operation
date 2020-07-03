@@ -46,7 +46,30 @@ trait ReviseOperation
             $this->crud->addButton('line', 'revise', 'view', 'revise-operation::revise_button', 'end');
         });
 
-        $crud = $this->crud;
+        // add a new method on the CrudPanel object to allow this operation
+        // to call getRevisionsForEntry from multiple operation methods
+        $this->crud->macro('getRevisionsForEntry', function($id) {
+            $revisions = [];
+
+            // Group revisions by change date
+            foreach ($this->getEntry($id)->revisionHistory as $history) {
+                // Get just the date from the revision created timestamp
+                $revisionDate = date('Y-m-d', strtotime((string) $history->created_at));
+
+                // Be sure to instantiate the initial grouping array
+                if (! array_key_exists($revisionDate, $revisions)) {
+                    $revisions[$revisionDate] = [];
+                }
+
+                // Push onto the top of the current group - so we get orderBy decending timestamp
+                array_unshift($revisions[$revisionDate], $history);
+            }
+
+            // Sort the array by timestamp descending (so that the most recent are at the top)
+            krsort($revisions);
+
+            return $revisions;
+        });
     }
 
     /**
@@ -64,28 +87,11 @@ trait ReviseOperation
         $id = $this->crud->getCurrentEntryId() ?? $id;
 
         // calculate the revisions for that id
-        $revisions = [];
-
-        // Group revisions by change date
-        foreach ($this->crud->getEntry($id)->revisionHistory as $history) {
-            // Get just the date from the revision created timestamp
-            $revisionDate = date('Y-m-d', strtotime((string) $history->created_at));
-
-            // Be sure to instantiate the initial grouping array
-            if (! array_key_exists($revisionDate, $revisions)) {
-                $revisions[$revisionDate] = [];
-            }
-
-            // Push onto the top of the current group - so we get orderBy decending timestamp
-            array_unshift($revisions[$revisionDate], $history);
-        }
-
-        // Sort the array by timestamp descending (so that the most recent are at the top)
-        krsort($revisions);
+        $revisions = $this->crud->getRevisionsForEntry($id);
 
         $this->data['entry'] = $this->crud->getEntry($id);
         $this->data['crud'] = $this->crud;
-        $this->data['title'] = $this->crud->getTitle() ?? mb_ucfirst($this->crud->entity_name).' '.trans('revise-operation::reviseoperation.revisions');
+        $this->data['title'] = $this->crud->getTitle() ?? mb_ucfirst($this->crud->entity_name).' '.trans('revise-operation::revise.revisions');
         $this->data['id'] = $id;
         $this->data['revisions'] = $revisions;
 
@@ -118,7 +124,7 @@ trait ReviseOperation
 
             $this->data['entry'] = $this->crud->getEntry($id);
             $this->data['crud'] = $this->crud;
-            $this->data['revisions'] = $this->crud->listRevisions($id); // Reload revisions as they have changed
+            $this->data['revisions'] = $this->crud->getRevisionsForEntry($id); // Reload revisions as they have changed
 
             // Rebuild the revision timeline HTML and return it to the AJAX call
             return view($this->crud->get('revise.timelineView') ?? 'revise-operation::revision_timeline', $this->data);
