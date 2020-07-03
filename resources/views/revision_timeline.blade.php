@@ -1,11 +1,12 @@
 
+<div id="timeline">
 @foreach($revisions as $revisionDate => $dateRevisions)
       <h5 class="text-primary">
         {{ Carbon\Carbon::parse($revisionDate)->isoFormat(config('backpack.base.default_date_format')) }}
       </h5>
 
   @foreach($dateRevisions as $history)
-    <div class="card">
+    <div class="card timeline-item-wrap">
 
       @if($history->key == 'created_at' && !$history->old_value)
         <div class="card-header">
@@ -38,6 +39,7 @@
     </div>
   @endforeach
 @endforeach
+</div>
 
 @section('after_scripts')
   <script type="text/javascript">
@@ -59,13 +61,22 @@
         },
         success: function(revisionTimeline) {
           // Replace the revision list with the updated revision list
-          $('.timeline').replaceWith(revisionTimeline);
+          $('#timeline').replaceWith(revisionTimeline);
 
           // Animate the new revision in (by sliding)
           $('.timeline-item-wrap').first().addClass('fadein');
+
+          // Show a green notification bubble
           new Noty({
               type: "success",
               text: "{{ trans('revise-operation::revise.revision_restored') }}"
+          }).show();
+        },
+        error: function(data) {
+          // Show a red notification bubble
+          new Noty({
+              type: "error",
+              text: data.responseJSON.message
           }).show();
         }
       });
