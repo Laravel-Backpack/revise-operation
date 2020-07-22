@@ -2,6 +2,7 @@
 
 All notable changes to `ReviseOperation` will be documented in this file.
 
+
 ## Version 1.0.4 - 2020-07-22
 
 ### Added
