@@ -15,7 +15,7 @@ class ReviseOperationServiceProvider extends ServiceProvider
     {
         $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'revise-operation');
 
-        // load views 
+        // load views
         // - from 'resources/views/vendor/backpack/revise-operation' if they're there
         // - otherwise fall back to package views
         $this->loadViewsFrom(resource_path('views/vendor/backpack/revise-operation'), 'revise-operation');
