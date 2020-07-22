@@ -68,6 +68,10 @@ class CategoryCrudController extends CrudController
 
 For complex usage, head on over to [VentureCraft/revisionable](https://github.com/VentureCraft/revisionable) to see the full documentation and extra configuration options.
 
+## Customizing views
+
+If you need to change the operation views in any way, you can do so by creating a blade file with the same name in your `resources/views/vendor/backpack/revise-operation` directory. Blade files there take priority over files in the package.
+
 
 ## Change log
 

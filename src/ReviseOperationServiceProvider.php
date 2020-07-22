@@ -14,6 +14,11 @@ class ReviseOperationServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'revise-operation');
+
+        // load views
+        // - from 'resources/views/vendor/backpack/revise-operation' if they're there
+        // - otherwise fall back to package views
+        $this->loadViewsFrom(resource_path('views/vendor/backpack/revise-operation'), 'revise-operation');
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'revise-operation');
 
         // Publishing is only necessary when using the CLI.
