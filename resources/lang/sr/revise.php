@@ -24,5 +24,5 @@ return [
     'to'                   => 'nova vrednost',
     'undo'                 => 'Undo',
     'revision_restored'    => 'Revizija uspešno vraćena',
-    'guest_user'           => 'Gost(Anonimno)',
+    'guest_user'           => 'Gost',
 ];
