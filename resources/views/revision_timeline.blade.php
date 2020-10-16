@@ -54,7 +54,7 @@
       e.preventDefault();
       var entryId = $(e.target).attr('data-entry-id');
       var revisionId = $(e.target).attr('data-revision-id');
-      $.ajax('{{ \Request::url().'/' }}' +  revisionId + '/restore', {
+      $.ajax('{{ url(\Request::url()).'/' }}' +  revisionId + '/restore', {
         method: 'POST',
         data: {
           revision_id: revisionId
