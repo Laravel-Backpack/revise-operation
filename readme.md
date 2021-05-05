@@ -1,8 +1,9 @@
 # ReviseOperation for Backpack for Laravel
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
-[![Total Downloads][ico-downloads]][link-downloads]
+[![Software License][ico-license]](LICENSE.md)
 [![Build Status][ico-travis]][link-travis]
+[![Total Downloads][ico-downloads]][link-downloads]
 [![StyleCI][ico-styleci]][link-styleci]
 
 Adds an interface for [```venturecraft/revisionable```](https://github.com/VentureCraft/revisionable) to your Backpack CRUDs, so that the admin can:
@@ -96,6 +97,7 @@ If you discover any security related issues, please email tabacitu@backpackforla
 MIT. Please see the [license file](license.md) for more information.
 
 [ico-version]: https://img.shields.io/packagist/v/backpack/revise-operation.svg?style=flat-square
+[ico-license]: https://img.shields.io/badge/license-dual-blue?style=flat-square
 [ico-downloads]: https://img.shields.io/packagist/dt/backpack/revise-operation.svg?style=flat-square
 [ico-travis]: https://img.shields.io/travis/backpack/revise-operation/master.svg?style=flat-square
 [ico-styleci]: https://styleci.io/repos/248960912/shield
