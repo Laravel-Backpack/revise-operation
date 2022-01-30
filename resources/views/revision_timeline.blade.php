@@ -33,8 +33,8 @@
           <div class="row">
             <div class="col-md-6"><div class="alert alert-danger" style="overflow: hidden;">
                     @if(isset($entry->translatable) and in_array($history->key,$entry->translatable) and !empty($history->oldValue()))
-                        @foreach(json_decode($history->oldValue()) as $lang=>$text)
-                            <p>[{{$lang}}]:{{$text}}</p>
+                        @foreach(json_decode($history->oldValue()) as $lang=>$langValue)
+                            <p>[{{$lang}}]:{{$langValue}}</p>
                         @endforeach
                     @else
                         {{$history->oldValue()   }}
@@ -42,8 +42,8 @@
                 </div></div>
             <div class="col-md-6"><div class="alert alert-success" style="overflow: hidden;">
                     @if(isset($entry->translatable) and in_array($history->key,$entry->translatable) and !empty($history->oldValue()))
-                        @foreach(json_decode($history->newValue()) as $lang=>$text)
-                            <p>[{{$lang}}]:{{$text}}</p>
+                        @foreach(json_decode($history->newValue()) as $lang=>$langValue)
+                            <p>[{{$lang}}]:{{$langValue}}</p>
                         @endforeach
                     @else
                         {{$history->newValue()   }}
