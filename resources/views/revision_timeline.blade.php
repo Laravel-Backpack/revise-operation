@@ -41,7 +41,7 @@
                     @endif
                 </div></div>
             <div class="col-md-6"><div class="alert alert-success" style="overflow: hidden;">
-                    @if(isset($entry->translatable) and in_array($history->key,$entry->translatable) and !empty($history->oldValue()))
+                    @if(isset($entry->translatable) and in_array($history->key,$entry->translatable) and !empty($history->newValue()))
                         @foreach(json_decode($history->newValue()) as $lang=>$langValue)
                             <p>[{{$lang}}]:{{$langValue}}</p>
                         @endforeach
