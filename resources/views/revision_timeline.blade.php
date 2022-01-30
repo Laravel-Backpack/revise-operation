@@ -31,8 +31,24 @@
             <div class="col-md-6">{{ mb_ucfirst(trans('revise-operation::revise.to')) }}:</div>
           </div>
           <div class="row">
-            <div class="col-md-6"><div class="alert alert-danger" style="overflow: hidden;">{{ $history->oldValue() }}</div></div>
-            <div class="col-md-6"><div class="alert alert-success" style="overflow: hidden;">{{ $history->newValue() }}</div></div>
+            <div class="col-md-6"><div class="alert alert-danger" style="overflow: hidden;">
+                    @if(isset($entry->translatable) and in_array($history->key,$entry->translatable) and !empty($history->oldValue()))
+                        @foreach(json_decode($history->oldValue()) as $lang=>$text)
+                            <p>[{{$lang}}]:{{$text}}</p>
+                        @endforeach
+                    @else
+                        {{$history->oldValue()   }}
+                    @endif
+                </div></div>
+            <div class="col-md-6"><div class="alert alert-success" style="overflow: hidden;">
+                    @if(isset($entry->translatable) and in_array($history->key,$entry->translatable) and !empty($history->oldValue()))
+                        @foreach(json_decode($history->newValue()) as $lang=>$text)
+                            <p>[{{$lang}}]:{{$text}}</p>
+                        @endforeach
+                    @else
+                        {{$history->newValue()   }}
+                    @endif
+                </div></div>
           </div>
         </div>
       @endif
