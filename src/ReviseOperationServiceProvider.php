@@ -18,7 +18,9 @@ class ReviseOperationServiceProvider extends ServiceProvider
         // load views
         // - from 'resources/views/vendor/backpack/revise-operation' if they're there
         // - otherwise fall back to package views
-        $this->loadViewsFrom(resource_path('views/vendor/backpack/revise-operation'), 'revise-operation');
+        if (is_dir(resource_path('views/vendor/backpack/revise-operation'))) {
+            $this->loadViewsFrom(resource_path('views/vendor/backpack/revise-operation'), 'revise-operation');
+        }
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'revise-operation');
 
         // Publishing is only necessary when using the CLI.
