@@ -118,7 +118,7 @@ trait ReviseOperation
             $revision = Revision::findOrFail($revisionId);
 
             // Update the revisioned field with the old value
-            if (isset($entry->translatable) and in_array($revision->key, $entry->translatable) and ! empty($revision->old_value)) {
+            if ($entry->translationEnabled() and $entry->isTranslatableAttribute($revision->key) and ! empty($revision->old_value)) {
                 $entry->{$revision->key} = json_decode($revision->old_value, true);
             } else {
                 $entry->{$revision->key} = $revision->old_value;
