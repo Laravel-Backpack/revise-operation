@@ -8,12 +8,12 @@
   @foreach($dateRevisions as $history)
     <div class="card timeline-item-wrap mb-3">
 
-      @if($history->key == 'created_at' && !$history->old_value)
-        <div class="card-header">
-          <strong class="time"><i class="la la-clock"></i> {{ date('h:ia', strtotime($history->created_at)) }}</strong> -
-          {{ $history->userResponsible()?$history->userResponsible()->name:trans('revise-operation::revise.guest_user') }} {{ trans('revise-operation::revise.created_this') }} {{ $crud->entity_name }}
-        </div>
-      @else
+        @if($history->key == 'created_at' && !$history->old_value)
+            <div class="card-header">
+                <strong class="time"><i class="la la-clock"></i> {{ date('h:ia', strtotime($history->created_at)) }}</strong> -
+                {{ $history->userResponsible()?$history->userResponsible()->name:trans('revise-operation::revise.guest_user') }} {{ trans('revise-operation::revise.created_this') }} {{ $crud->entity_name }}
+            </div>
+         @else
         <div class="card-header">
           <strong class="time"><i class="la la-clock"></i> {{ date('h:ia', strtotime($history->created_at)) }}</strong> -
           {{ $history->userResponsible()?$history->userResponsible()->name:trans('revise-operation::revise.guest_user') }} {{ trans('revise-operation::revise.changed_the') }} {{ $history->fieldName() }}
