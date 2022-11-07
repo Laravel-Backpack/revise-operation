@@ -14,15 +14,15 @@ return [
     */
 
     // Revisions
-    'revisions'            => 'Revisions',
-    'no_revisions'         => 'No revisions found',
-    'revisions_for'        => 'Revisions for',
-    'created_this'         => 'created this',
-    'changed_the'          => 'changed the',
-    'restore_this_value'   => 'Restore this value',
-    'from'                 => 'from',
-    'to'                   => 'to',
-    'undo'                 => 'Undo',
-    'revision_restored'    => 'Revision successfully restored',
-    'guest_user'           => 'Guest User',
+    'revisions'            => 'التعديلات',
+    'no_revisions'         => 'لا يوجد تعديلات',
+    'revisions_for'        => 'التعديلات ل',
+    'created_this'         => 'قام بإنشاء',
+    'changed_the'          => 'قام بتعديل',
+    'restore_this_value'   => 'قام باسترداد هذه القيمة',
+    'from'                 => 'من',
+    'to'                   => 'إلى',
+    'undo'                 => 'تراجع',
+    'revision_restored'    => 'تم استرداد القيمة بنجاح',
+    'guest_user'           => 'مستخدم ضيف',
 ];
