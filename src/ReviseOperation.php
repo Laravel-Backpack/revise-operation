@@ -43,6 +43,7 @@ trait ReviseOperation
 
         $this->crud->operation(['list', 'show'], function () {
             // add a button in the line stack
+            $this->crud->query->with('revisionHistory');
             $this->crud->addButton('line', 'revise', 'view', 'revise-operation::revise_button', 'end');
         });
 
