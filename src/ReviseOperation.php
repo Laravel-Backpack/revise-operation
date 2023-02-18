@@ -118,10 +118,19 @@ trait ReviseOperation
             $entry = $this->crud->getEntryWithoutFakes($id);
             $revision = Revision::findOrFail($revisionId);
 
-            // Update the revisioned field with the old value
-            $entry->update([$revision->key => $revision->old_value]);
+            if (method_exists($entry, 'isTranslatableAttribute') && $entry->isTranslatableAttribute($revision->key)) {
+                $oldValueAsArray = json_decode($revision->old_value, true);
+                $entry->forgetTranslations($revision->key);
+                foreach ($oldValueAsArray as $locale => $value) {
+                    $entry->setTranslation($revision->key, $locale, $value);
+                }
+                $entry->save();
+            } else {
+                // Update the revisioned field with the old value
+                $entry->update([$revision->key => $revision->old_value]);
+            }
 
-            $this->data['entry'] = $this->crud->getEntry($id);
+            $this->data['entry'] = $entry;
             $this->data['crud'] = $this->crud;
             $this->data['revisions'] = $this->crud->getRevisionsForEntry($id); // Reload revisions as they have changed
 

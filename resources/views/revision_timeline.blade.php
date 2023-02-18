@@ -1,43 +1,59 @@
 
 <div id="timeline">
 @foreach($revisions as $revisionDate => $dateRevisions)
-      <h5 class="text-primary">
-        {{ Carbon\Carbon::parse($revisionDate)->isoFormat(config('backpack.base.default_date_format')) }}
-      </h5>
+    <h5 class="text-primary">
+    {{ Carbon\Carbon::parse($revisionDate)->isoFormat(config('backpack.base.default_date_format')) }}
+    </h5>
 
-  @foreach($dateRevisions as $history)
-    <div class="card timeline-item-wrap">
+    @foreach($dateRevisions as $history)
+        <div class="card timeline-item-wrap">
 
-      @if($history->key == 'created_at' && !$history->old_value)
-        <div class="card-header">
-          <strong class="time"><i class="la la-clock"></i> {{ date('h:ia', strtotime($history->created_at)) }}</strong> -
-          {{ $history->userResponsible()?$history->userResponsible()->name:trans('revise-operation::revise.guest_user') }} {{ trans('revise-operation::revise.created_this') }} {{ $crud->entity_name }}
+        @if($history->key == 'created_at' && !$history->old_value)
+            <div class="card-header">
+                <strong class="time"><i class="la la-clock"></i> {{ date('h:ia', strtotime($history->created_at)) }}</strong> -
+                {{ $history->userResponsible()?$history->userResponsible()->name:trans('revise-operation::revise.guest_user') }} {{ trans('revise-operation::revise.created_this') }} {{ $crud->entity_name }}
+            </div>
+        @else
+            <div class="card-header">
+                <strong class="time"><i class="la la-clock"></i> {{ date('h:ia', strtotime($history->created_at)) }}</strong> -
+                {{ $history->userResponsible()?$history->userResponsible()->name:trans('revise-operation::revise.guest_user') }} {{ trans('revise-operation::revise.changed_the') }} {{ $history->fieldName() }}
+                <div class="card-header-actions">
+                    <form class="card-header-action" method="post" action="{{ url(\Request::url().'/'.$history->id.'/restore') }}">
+                    {!! csrf_field() !!}
+                    <button type="submit" class="btn btn-outline-danger btn-sm restore-btn" data-entry-id="{{ $entry->id }}" data-revision-id="{{ $history->id }}" onclick="onRestoreClick(event)">
+                        <i class="la la-undo"></i> {{ trans('revise-operation::revise.undo') }}</button>
+                    </form>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">{{ mb_ucfirst(trans('revise-operation::revise.from')) }}:</div>
+                    <div class="col-md-6">{{ mb_ucfirst(trans('revise-operation::revise.to')) }}:</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6"><div class="alert alert-danger" style="overflow: hidden;"> 
+                        @if($entry->translationEnabled() && $entry->isTranslatableAttribute($history->key) && $crud->getOperationSetting('parseTranslatedRevisions'))
+                            @foreach(json_decode($history->oldValue(), true) ?? [] as $locale => $value)
+                                <p style="margin-bottom: 0px; padding-bottom:0px;"><b>{{ strtoupper($locale) }}</b>: {{$value}}</p>
+                            @endforeach
+                        @else
+                            {{ $history->oldValue() }}
+                        @endif
+                    </div></div>
+                    <div class="col-md-6"><div class="alert alert-success" style="overflow: hidden;">
+                        @if($entry->translationEnabled() && $entry->isTranslatableAttribute($history->key) && $crud->getOperationSetting('parseTranslatedRevisions'))
+                            @foreach(json_decode($history->newValue(), true) ?? [] as $locale => $value)
+                                <p style="margin-bottom: 0px; padding-bottom:0px;"><b>{{ strtoupper($locale) }}</b>: {{$value}}</p>
+                            @endforeach
+                        @else
+                            {{ $history->newValue() }}
+                        @endif
+                    </div></div>
+                </div>
+            </div>
+        @endif
         </div>
-      @else
-        <div class="card-header">
-          <strong class="time"><i class="la la-clock"></i> {{ date('h:ia', strtotime($history->created_at)) }}</strong> -
-          {{ $history->userResponsible()?$history->userResponsible()->name:trans('revise-operation::revise.guest_user') }} {{ trans('revise-operation::revise.changed_the') }} {{ $history->fieldName() }}
-          <div class="card-header-actions">
-            <form class="card-header-action" method="post" action="{{ url(\Request::url().'/'.$history->id.'/restore') }}">
-              {!! csrf_field() !!}
-              <button type="submit" class="btn btn-outline-danger btn-sm restore-btn" data-entry-id="{{ $entry->id }}" data-revision-id="{{ $history->id }}" onclick="onRestoreClick(event)">
-                <i class="la la-undo"></i> {{ trans('revise-operation::revise.undo') }}</button>
-              </form>
-          </div>
-        </div>
-        <div class="card-body">
-          <div class="row">
-            <div class="col-md-6">{{ mb_ucfirst(trans('revise-operation::revise.from')) }}:</div>
-            <div class="col-md-6">{{ mb_ucfirst(trans('revise-operation::revise.to')) }}:</div>
-          </div>
-          <div class="row">
-            <div class="col-md-6"><div class="alert alert-danger" style="overflow: hidden;">{{ $history->oldValue() }}</div></div>
-            <div class="col-md-6"><div class="alert alert-success" style="overflow: hidden;">{{ $history->newValue() }}</div></div>
-          </div>
-        </div>
-      @endif
-    </div>
-  @endforeach
+    @endforeach
 @endforeach
 </div>
 
