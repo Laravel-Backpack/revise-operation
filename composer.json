@@ -12,27 +12,16 @@
     "homepage": "https://github.com/laravel-backpack/revise-operation",
     "keywords": [
         "Laravel", "ReviseOperation", "Backpack", "Backpack for Laravel", "Backpack Operation",
-        "Backpack Add-On", "Admin Panel", "Admin Interface", "Revision History", "Audit Log", 
+        "Backpack Add-On", "Admin Panel", "Admin Interface", "Revision History", "Audit Log",
         "Revisionable", "Revisions"
     ],
     "require": {
-        "backpack/crud": "^4.0|^5.0",
+        "backpack/crud": "^6.0",
         "venturecraft/revisionable": "1.*"
-    },
-    "require-dev": {
-        "phpunit/phpunit": "^8.0",
-        "mockery/mockery": "^1.1",
-        "orchestra/testbench": "~3|~4",
-        "sempro/phpunit-pretty-print": "^1.0"
     },
     "autoload": {
         "psr-4": {
             "Backpack\\ReviseOperation\\": "src/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "Backpack\\ReviseOperation\\Tests\\": "tests"
         }
     },
     "extra": {
