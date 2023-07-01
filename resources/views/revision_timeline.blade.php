@@ -1,12 +1,12 @@
 
 <div id="timeline">
 @foreach($revisions as $revisionDate => $dateRevisions)
-      <h5 class="text-primary">
-        {{ Carbon\Carbon::parse($revisionDate)->isoFormat(config('backpack.base.default_date_format')) }}
-      </h5>
+      <h3 class="text-primary">
+        {{ Carbon\Carbon::parse($revisionDate)->isoFormat(config('backpack.ui.default_date_format')) }}
+      </h3>
 
   @foreach($dateRevisions as $history)
-    <div class="card timeline-item-wrap">
+    <div class="card timeline-item-wrap mb-3">
 
       @if($history->key == 'created_at' && !$history->old_value)
         <div class="card-header">
@@ -17,7 +17,7 @@
         <div class="card-header">
           <strong class="time"><i class="la la-clock"></i> {{ date('h:ia', strtotime($history->created_at)) }}</strong> -
           {{ $history->userResponsible()?$history->userResponsible()->name:trans('revise-operation::revise.guest_user') }} {{ trans('revise-operation::revise.changed_the') }} {{ $history->fieldName() }}
-          <div class="card-header-actions">
+          <div class="card-header-actions ms-1 float-end">
             <form class="card-header-action" method="post" action="{{ url(\Request::url().'/'.$history->id.'/restore') }}">
               {!! csrf_field() !!}
               <button type="submit" class="btn btn-outline-danger btn-sm restore-btn" data-entry-id="{{ $entry->id }}" data-revision-id="{{ $history->id }}" onclick="onRestoreClick(event)">

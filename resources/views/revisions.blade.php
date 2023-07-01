@@ -15,16 +15,20 @@
 @endphp
 
 @section('header')
-  <div class="container-fluid">
-    <h2>
-        <span class="text-capitalize">{!! $heading !!}</span>
-        <small>{!! $subheading !!}.</small>
-
-        @if ($crud->hasAccess('list'))
-          <small><a href="{{ url($crud->route) }}" class="hidden-print font-sm"><i class="la la-angle-double-left"></i> {{ trans('backpack::crud.back_to_all') }} <span>{{ $crud->entity_name_plural }}</span></a></small>
-        @endif
-    </h2>
-  </div>
+  <section class="header-operation container-fluid animated fadeIn d-flex mb-2 align-items-end" bp-section="page-header">
+    <h1 bp-section="page-heading" class="text-capitalize mb-2">
+      {!! $heading !!}
+    </h1>
+    <p class="ms-2 ml-2 mb-2" bp-section="page-subheading">
+      {!! $subheading !!}.
+    </p>
+    @if ($crud->hasAccess('list'))
+    <p class="ms-2 ml-2 mb-2" bp-section="page-subheading-back-button">
+      <small><a href="{{ url($crud->route) }}" class="hidden-print font-sm"><i class="la la-angle-double-left"></i> {{
+          trans('backpack::crud.back_to_all') }} <span>{{ $crud->entity_name_plural }}</span></a></small>
+    </p>
+    @endif
+  </section>
 @endsection
 
 @section('content')
@@ -43,15 +47,4 @@
     @endif
   </div>
 </div>
-@endsection
-
-
-@section('after_styles')
-  <link rel="stylesheet" href="{{ asset('packages/backpack/crud/css/crud.css') }}">
-  <link rel="stylesheet" href="{{ asset('packages/backpack/crud/css/revisions.css') }}">
-@endsection
-
-@section('after_scripts')
-  <script src="{{ asset('packages/backpack/crud/js/crud.js') }}"></script>
-  <script src="{{ asset('packages/backpack/crud/js/revisions.js') }}"></script>
 @endsection
