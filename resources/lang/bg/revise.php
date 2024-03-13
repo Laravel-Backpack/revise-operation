@@ -14,15 +14,15 @@ return [
     */
 
     // Revisions
-    'revisions'             => 'Версии',
-    'no_revisions'          => 'Не бяха открити версии',
-    'revisions_for'        => 'Revisions for',
-    'created_this'          => 'създаде това',
-    'changed_the'           => 'смени',
-    'restore_this_value'    => 'Възстанови от ?',
-    'from'                  => 'от',
-    'to'                    => 'до',
-    'undo'                  => 'отмени',
-    'revision_restored'     => 'Версията беше върната успешно.',
-    'guest_user'           => 'Guest User',
+    'revisions' => 'Версии',
+    'no_revisions' => 'Не бяха открити версии',
+    'revisions_for' => 'Revisions for',
+    'created_this' => 'създаде това',
+    'changed_the' => 'смени',
+    'restore_this_value' => 'Възстанови от ?',
+    'from' => 'от',
+    'to' => 'до',
+    'undo' => 'отмени',
+    'revision_restored' => 'Версията беше върната успешно.',
+    'guest_user' => 'Guest User',
 ];
