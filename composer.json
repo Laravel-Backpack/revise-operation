@@ -17,7 +17,13 @@
     ],
     "require": {
         "backpack/crud": "^6.0",
-        "venturecraft/revisionable": "1.*"
+        "venturecraft/revisionable": "dev-l11-compatibility"
+    },
+    "repositories": {
+        "revisionable": {
+            "type": "composer",
+            "url": "https://github.com/laravel-shift/revisionable.git"
+        }      
     },
     "autoload": {
         "psr-4": {
