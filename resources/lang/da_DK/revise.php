@@ -14,15 +14,15 @@ return [
     */
 
     // Revisions
-    'revisions'            => 'Revisioner',
-    'no_revisions'         => 'ingen revisioner fundet',
-    'revisions_for'        => 'Revisions for',
-    'created_this'         => 'lavede denne',
-    'changed_the'          => 'ændrede denne',
-    'restore_this_value'   => 'gendan denne værdi',
-    'from'                 => 'før',
-    'to'                   => 'efter',
-    'undo'                 => 'fortryd',
-    'revision_restored'    => 'Revision gendannet',
-    'guest_user'           => 'gæste bruger',
+    'revisions' => 'Revisioner',
+    'no_revisions' => 'ingen revisioner fundet',
+    'revisions_for' => 'Revisions for',
+    'created_this' => 'lavede denne',
+    'changed_the' => 'ændrede denne',
+    'restore_this_value' => 'gendan denne værdi',
+    'from' => 'før',
+    'to' => 'efter',
+    'undo' => 'fortryd',
+    'revision_restored' => 'Revision gendannet',
+    'guest_user' => 'gæste bruger',
 ];

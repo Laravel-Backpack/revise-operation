@@ -14,15 +14,15 @@ return [
     */
 
     // Revisions
-    'revisions'            => 'Düzeltmeler',
-    'no_revisions'         => 'Düzeltme bulunamadı',
-    'revisions_for'        => 'Revisions for',
-    'created_this'         => 'bunu oluşturdu',
-    'changed_the'          => 'değişti',
-    'restore_this_value'   => 'Bu değeri geri yükle',
-    'from'                 => 'dan',
-    'to'                   => 'buraya',
-    'undo'                 => 'Geri al',
-    'revision_restored'    => 'Revizyon başarıyla geri yüklendi',
-    'guest_user'           => 'Misafir Kullanıcı',
+    'revisions' => 'Düzeltmeler',
+    'no_revisions' => 'Düzeltme bulunamadı',
+    'revisions_for' => 'Revisions for',
+    'created_this' => 'bunu oluşturdu',
+    'changed_the' => 'değişti',
+    'restore_this_value' => 'Bu değeri geri yükle',
+    'from' => 'dan',
+    'to' => 'buraya',
+    'undo' => 'Geri al',
+    'revision_restored' => 'Revizyon başarıyla geri yüklendi',
+    'guest_user' => 'Misafir Kullanıcı',
 ];
