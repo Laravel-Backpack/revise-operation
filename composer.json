@@ -16,7 +16,7 @@
         "Revisionable", "Revisions"
     ],
     "require": {
-        "backpack/crud": "^6.0",
+        "backpack/crud": "7.0.0-alpha.1",
         "venturecraft/revisionable": "1.*"
     },
     "autoload": {
