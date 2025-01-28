@@ -16,15 +16,15 @@ return [
     */
 
     // Revisions
-    'revisions'            => 'Версії',
-    'no_revisions'         => 'Версій не знайдено',
-    'revisions_for'        => 'Версії для',
-    'created_this'         => 'створив це',
-    'changed_the'          => 'змінив',
-    'restore_this_value'   => 'Відновити це значення',
-    'from'                 => 'з',
-    'to'                   => 'по',
-    'undo'                 => 'Скасувати',
-    'revision_restored'    => 'Версію успішно відновлено',
-    'guest_user'           => 'Гість',
+    'revisions' => 'Версії',
+    'no_revisions' => 'Версій не знайдено',
+    'revisions_for' => 'Версії для',
+    'created_this' => 'створив це',
+    'changed_the' => 'змінив',
+    'restore_this_value' => 'Відновити це значення',
+    'from' => 'з',
+    'to' => 'по',
+    'undo' => 'Скасувати',
+    'revision_restored' => 'Версію успішно відновлено',
+    'guest_user' => 'Гість',
 ];
