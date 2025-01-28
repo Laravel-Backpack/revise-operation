@@ -14,15 +14,15 @@ return [
     */
 
     // Revisions
-    'revisions'            => 'Revisões',
-    'no_revisions'         => 'Não foram encontradas revisões',
-    'revisions_for'        => 'Revisões para',
-    'created_this'         => 'criou este',
-    'changed_the'          => 'alterou este',
-    'restore_this_value'   => 'Restaurou este valor',
-    'from'                 => 'de',
-    'to'                   => 'para',
-    'undo'                 => 'Desfazer',
-    'revision_restored'    => 'Revisão restaurada com sucesso',
-    'guest_user'           => 'Convidado',
+    'revisions' => 'Revisões',
+    'no_revisions' => 'Não foram encontradas revisões',
+    'revisions_for' => 'Revisões para',
+    'created_this' => 'criou este',
+    'changed_the' => 'alterou este',
+    'restore_this_value' => 'Restaurou este valor',
+    'from' => 'de',
+    'to' => 'para',
+    'undo' => 'Desfazer',
+    'revision_restored' => 'Revisão restaurada com sucesso',
+    'guest_user' => 'Convidado',
 ];

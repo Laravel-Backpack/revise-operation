@@ -14,14 +14,14 @@ return [
     */
 
     // Revisions
-    'revisions'             => 'Revisies',
-    'no_revisions'          => 'Geen revisies gevonden',
-    'revisions_for'        => 'Revisions for',
-    'created_this'          => 'heeft dit aangemaakt',
-    'changed_the'           => 'heeft aangepast',
-    'restore_this_value'    => 'Herstel deze waarde',
-    'from'                  => 'van',
-    'to'                    => 'naar',
-    'undo'                  => 'Ongedaan maken',
-    'revision_restored'     => 'Revisie succesvol hersteld',
+    'revisions' => 'Revisies',
+    'no_revisions' => 'Geen revisies gevonden',
+    'revisions_for' => 'Revisions for',
+    'created_this' => 'heeft dit aangemaakt',
+    'changed_the' => 'heeft aangepast',
+    'restore_this_value' => 'Herstel deze waarde',
+    'from' => 'van',
+    'to' => 'naar',
+    'undo' => 'Ongedaan maken',
+    'revision_restored' => 'Revisie succesvol hersteld',
 ];

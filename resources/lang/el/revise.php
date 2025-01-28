@@ -14,15 +14,15 @@ return [
     */
 
     // Revisions
-    'revisions'            => 'Αναθεωρήσεις',
-    'no_revisions'         => 'Δεν βρέθηκαν αναθεωρήσεις',
-    'revisions_for'        => 'Revisions for',
-    'created_this'         => 'δημιούργησε',
-    'changed_the'          => 'άλλαξε',
-    'restore_this_value'   => 'επανέφερε αυτή την τιμή',
-    'from'                 => 'από',
-    'to'                   => 'σε',
-    'undo'                 => 'Αναίρεση',
-    'revision_restored'    => 'Η αναθεώρηση ανακτήθηκε με επιτυχία',
-    'guest_user'           => 'Guest User',
+    'revisions' => 'Αναθεωρήσεις',
+    'no_revisions' => 'Δεν βρέθηκαν αναθεωρήσεις',
+    'revisions_for' => 'Revisions for',
+    'created_this' => 'δημιούργησε',
+    'changed_the' => 'άλλαξε',
+    'restore_this_value' => 'επανέφερε αυτή την τιμή',
+    'from' => 'από',
+    'to' => 'σε',
+    'undo' => 'Αναίρεση',
+    'revision_restored' => 'Η αναθεώρηση ανακτήθηκε με επιτυχία',
+    'guest_user' => 'Guest User',
 ];

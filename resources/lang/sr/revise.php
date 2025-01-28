@@ -14,15 +14,15 @@ return [
     */
 
     // Revisions
-    'revisions'            => 'Revizije',
-    'no_revisions'         => 'Nema revizija',
-    'revisions_for'        => 'Revizije za',
-    'created_this'         => 'je kreirao',
-    'changed_the'          => 'je izmenio',
-    'restore_this_value'   => 'Vrati vrednost',
-    'from'                 => 'prethodna vrednost',
-    'to'                   => 'nova vrednost',
-    'undo'                 => 'Undo',
-    'revision_restored'    => 'Revizija uspešno vraćena',
-    'guest_user'           => 'Gost',
+    'revisions' => 'Revizije',
+    'no_revisions' => 'Nema revizija',
+    'revisions_for' => 'Revizije za',
+    'created_this' => 'je kreirao',
+    'changed_the' => 'je izmenio',
+    'restore_this_value' => 'Vrati vrednost',
+    'from' => 'prethodna vrednost',
+    'to' => 'nova vrednost',
+    'undo' => 'Undo',
+    'revision_restored' => 'Revizija uspešno vraćena',
+    'guest_user' => 'Gost',
 ];
