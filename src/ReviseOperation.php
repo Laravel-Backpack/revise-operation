@@ -116,7 +116,7 @@ trait ReviseOperation
             abort(500, 'Can\'t restore revision without revision_id');
         } else {
             $entry = $this->crud->getEntryWithoutFakes($id);
-            $revision = Revision::findOrFail($revisionId);
+            $revision = \Venturecraft\Revisionable\Revisionable::newModel()->findOrFail($revisionId);
 
             // Update the revisioned field with the old value
             $entry->update([$revision->key => $revision->old_value]);
