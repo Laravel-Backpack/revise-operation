@@ -120,10 +120,9 @@ trait ReviseOperation
 
             if (method_exists($entry, 'isTranslatableAttribute') && $entry->isTranslatableAttribute($revision->key)) {
                 $oldValueAsArray = json_decode($revision->old_value, true);
-                $entry->forgetTranslations($revision->key);
-                foreach ($oldValueAsArray as $locale => $value) {
-                    $entry->setTranslation($revision->key, $locale, $value);
-                }
+                $entry->forgetTranslation($revision->key, app()->getLocale());
+                $entry->setTranslation($revision->key, app()->getLocale(), $oldValueAsArray[app()->getLocale()] ?? null);
+                
                 $entry->save();
             } else {
                 // Update the revisioned field with the old value
