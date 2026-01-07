@@ -122,7 +122,7 @@ trait ReviseOperation
                 $oldValueAsArray = json_decode($revision->old_value, true);
                 $entry->forgetTranslation($revision->key, app()->getLocale());
                 $entry->setTranslation($revision->key, app()->getLocale(), $oldValueAsArray[app()->getLocale()] ?? null);
-                
+
                 $entry->save();
             } else {
                 // Update the revisioned field with the old value
