@@ -116,12 +116,20 @@ trait ReviseOperation
             abort(500, 'Can\'t restore revision without revision_id');
         } else {
             $entry = $this->crud->getEntryWithoutFakes($id);
-            $revision = \Venturecraft\Revisionable\Revisionable::newModel()->findOrFail($revisionId);
+            $revision = Revision::findOrFail($revisionId);
 
-            // Update the revisioned field with the old value
-            $entry->update([$revision->key => $revision->old_value]);
+            if (method_exists($entry, 'isTranslatableAttribute') && $entry->isTranslatableAttribute($revision->key)) {
+                $oldValueAsArray = json_decode($revision->old_value, true);
+                $entry->forgetTranslation($revision->key, app()->getLocale());
+                $entry->setTranslation($revision->key, app()->getLocale(), $oldValueAsArray[app()->getLocale()] ?? null);
 
-            $this->data['entry'] = $this->crud->getEntry($id);
+                $entry->save();
+            } else {
+                // Update the revisioned field with the old value
+                $entry->update([$revision->key => $revision->old_value]);
+            }
+
+            $this->data['entry'] = $entry;
             $this->data['crud'] = $this->crud;
             $this->data['revisions'] = $this->crud->getRevisionsForEntry($id); // Reload revisions as they have changed
 
